@@ -224,7 +224,7 @@ textarea:focus-visible {
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: var(--space-5);
   text-decoration: none;
 }
 
@@ -234,12 +234,12 @@ textarea:focus-visible {
 }
 
 .logo-icon--image {
-  width: 44px;
-  height: 44px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid rgba(255,255,255,0.35);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.28);
   background: #fff;
 }
 
@@ -259,17 +259,17 @@ textarea:focus-visible {
 .logo-name {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.25rem;
+  font-size: 2rem;
   color: var(--color-white);
-  letter-spacing: 0.01em;
+  letter-spacing: 0.005em;
 }
 
 .logo-sub {
   font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 0.7rem;
+  font-weight: 500;
+  font-size: 1rem;
   color: rgba(255,255,255,0.8);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
@@ -1548,7 +1548,18 @@ textarea:focus-visible {
 .footer-logo .logo-name { color: var(--color-white); }
 .footer-logo .logo-sub  { color: rgba(255,255,255,0.6); }
 
+.footer-logo .logo-name {
+  font-size: 1.25rem;
+}
+
+.footer-logo .logo-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+}
+
 .footer-logo .logo-icon--image {
+  width: 40px;
+  height: 40px;
   border-color: rgba(255,255,255,0.25);
   box-shadow: 0 4px 16px rgba(0,0,0,0.35);
 }
@@ -1736,6 +1747,20 @@ textarea:focus-visible {
   }
 
   .nav-link:hover { background: var(--color-green-50); color: var(--color-green-700); }
+
+  .logo-icon--image {
+    width: 62px;
+    height: 62px;
+  }
+
+  .logo-name {
+    font-size: 1.5rem;
+  }
+
+  .logo-sub {
+    font-size: 0.84rem;
+    letter-spacing: 0.1em;
+  }
 
   .nav-cta {
     margin-top: var(--space-4);
