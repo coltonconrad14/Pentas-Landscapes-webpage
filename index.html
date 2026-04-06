@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pentas Landscapes – Premier landscape maintenance, design, and educational classes for HOAs in the greater Austin, Texas area." />
+  <title>Pentas Landscapes | Austin, TX</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-container" role="navigation" aria-label="Main navigation">
+      <a href="#hero" class="nav-logo" aria-label="Pentas Landscapes home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
+            <circle cx="24" cy="20" r="5" fill="currentColor" opacity="0.9"/>
+            <ellipse cx="24" cy="10" rx="3.5" ry="6" fill="currentColor" opacity="0.7"/>
+            <ellipse cx="31.5" cy="13.5" rx="3.5" ry="6" transform="rotate(60 31.5 13.5)" fill="currentColor" opacity="0.7"/>
+            <ellipse cx="31.5" cy="26.5" rx="3.5" ry="6" transform="rotate(120 31.5 26.5)" fill="currentColor" opacity="0.7"/>
+            <ellipse cx="24" cy="30" rx="3.5" ry="6" transform="rotate(180 24 30)" fill="currentColor" opacity="0.7"/>
+            <ellipse cx="16.5" cy="26.5" rx="3.5" ry="6" transform="rotate(240 16.5 26.5)" fill="currentColor" opacity="0.7"/>
+            <ellipse cx="16.5" cy="13.5" rx="3.5" ry="6" transform="rotate(300 16.5 13.5)" fill="currentColor" opacity="0.7"/>
+            <line x1="24" y1="25" x2="24" y2="46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </span>
+        <span class="logo-text">
+          <span class="logo-name">Pentas</span>
+          <span class="logo-sub">Landscapes</span>
+        </span>
+      </a>
+
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#classes" class="nav-link">Classes</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#testimonials" class="nav-link">Reviews</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Get a Quote</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero" aria-label="Hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content reveal-hero">
+      <span class="hero-eyebrow">Greater Austin's Premier Landscape Experts</span>
+      <h1 class="hero-headline">
+        Where Austin&nbsp;Blooms<br />
+        <em>All Year Long</em>
+      </h1>
+      <p class="hero-sub">
+        Landscape maintenance, custom design, and educational classes crafted<br class="br-desktop" />
+        for homeowners and HOAs across the greater Austin area.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Request a Free Estimate</a>
+        <a href="#services" class="btn btn-ghost">Explore Our Work</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-badge">
+          <span class="badge-num" data-count="250">0</span><span class="badge-plus">+</span>
+          <span class="badge-label">Happy Clients</span>
+        </div>
+        <div class="hero-badge-divider"></div>
+        <div class="hero-badge">
+          <span class="badge-num" data-count="12">0</span><span class="badge-plus">+</span>
+          <span class="badge-label">Years of Experience</span>
+        </div>
+        <div class="hero-badge-divider"></div>
+        <div class="hero-badge">
+          <span class="badge-num" data-count="40">0</span><span class="badge-plus">+</span>
+          <span class="badge-label">HOAs Served</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========== SERVICES ========== -->
+  <section class="section services-section" id="services" aria-label="Services">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">What We Offer</span>
+        <h2 class="section-title">Crafted for the Austin Landscape</h2>
+        <p class="section-desc">
+          From routine upkeep to stunning transformations, every service is tailored<br class="br-desktop" />
+          to thrive in Central Texas's unique climate and beauty.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <article class="service-card fade-in" style="--delay: 0.1s">
+          <div class="service-card-inner">
+            <div class="service-card-front">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 56C32 56 8 42 8 24C8 13.5 19.2 6 32 6C44.8 6 56 13.5 56 24C56 42 32 56 32 56Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                  <path d="M32 56V30" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M32 38C28 32 20 30 16 34" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <path d="M32 44C36 38 44 36 48 40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="service-title">Landscape Maintenance</h3>
+              <p class="service-excerpt">
+                Consistent, reliable care that keeps your property lush and thriving through Austin's seasons.
+              </p>
+              <span class="service-more-hint" aria-hidden="true">Hover to learn more ↓</span>
+            </div>
+            <div class="service-card-back">
+              <h3 class="service-title-back">Landscape Maintenance</h3>
+              <ul class="service-list">
+                <li>Weekly &amp; bi-weekly mowing and edging</li>
+                <li>Seasonal pruning and trimming</li>
+                <li>Native plant care &amp; replanting</li>
+                <li>Fertilization &amp; weed control</li>
+                <li>Irrigation system checks</li>
+                <li>Leaf removal &amp; seasonal clean-ups</li>
+              </ul>
+              <a href="#contact" class="btn btn-light-sm">Get a Quote →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card service-card--featured fade-in" style="--delay: 0.2s">
+          <div class="service-card-inner">
+            <div class="service-card-front">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="8" y="36" width="48" height="20" rx="3" stroke="currentColor" stroke-width="2.5"/>
+                  <path d="M16 36V20C16 14 20 10 28 10H36C44 10 48 14 48 20V36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                  <circle cx="26" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="38" cy="24" r="3" stroke="currentColor" stroke-width="2"/>
+                  <path d="M24 44H40" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div class="featured-badge" aria-label="Most popular">Most Popular</div>
+              <h3 class="service-title">HOA Classes &amp; Workshops</h3>
+              <p class="service-excerpt">
+                Engaging, hands-on educational experiences that bring your community together around plants and creativity.
+              </p>
+              <span class="service-more-hint" aria-hidden="true">Hover to learn more ↓</span>
+            </div>
+            <div class="service-card-back">
+              <h3 class="service-title-back">HOA Classes &amp; Workshops</h3>
+              <ul class="service-list">
+                <li>Plant identification &amp; care</li>
+                <li>Floral arrangement workshops</li>
+                <li>Seasonal plant crafts</li>
+                <li>Native &amp; drought-tolerant planting</li>
+                <li>Container garden design</li>
+                <li>Composting &amp; soil health</li>
+              </ul>
+              <a href="#classes" class="btn btn-light-sm">View All Classes →</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card fade-in" style="--delay: 0.3s">
+          <div class="service-card-inner">
+            <div class="service-card-front">
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M10 50L22 34L32 42L44 26L54 50H10Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+                  <circle cx="44" cy="16" r="6" stroke="currentColor" stroke-width="2.5"/>
+                  <path d="M12 20L20 12L28 18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h3 class="service-title">Landscape Design &amp; Enhancements</h3>
+              <p class="service-excerpt">
+                Transform your outdoor space with thoughtful design rooted in Austin's natural beauty.
+              </p>
+              <span class="service-more-hint" aria-hidden="true">Hover to learn more ↓</span>
+            </div>
+            <div class="service-card-back">
+              <h3 class="service-title-back">Design &amp; Enhancements</h3>
+              <ul class="service-list">
+                <li>Custom landscape planning</li>
+                <li>Native &amp; Texas-adapted plant selection</li>
+                <li>Seasonal color installation</li>
+                <li>Hardscape integration</li>
+                <li>Outdoor lighting design</li>
+                <li>Before &amp; after project management</li>
+              </ul>
+              <a href="#contact" class="btn btn-light-sm">Start Your Project →</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about-section" id="about" aria-label="About us">
+    <div class="container about-container">
+      <div class="about-image-col fade-in-left">
+        <div class="about-img-wrap">
+          <div class="about-img-placeholder" aria-label="Pentas Landscapes team at work">
+            <div class="img-placeholder-inner">
+              <svg viewBox="0 0 200 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <rect width="200" height="220" rx="4" fill="#E8EFE3"/>
+                <circle cx="100" cy="80" r="28" fill="#5A8C6A" opacity="0.6"/>
+                <rect x="60" y="115" width="80" height="50" rx="8" fill="#5A8C6A" opacity="0.4"/>
+                <rect x="30" y="160" width="140" height="40" rx="4" fill="#8FAD88" opacity="0.4"/>
+                <path d="M20 200 Q50 170 80 185 Q100 195 130 178 Q160 162 180 185 L180 220 L20 220 Z" fill="#4A7C59" opacity="0.3"/>
+              </svg>
+              <span class="placeholder-label">Photo Coming Soon</span>
+            </div>
+          </div>
+          <div class="about-accent-card">
+            <span class="accent-card-num">Since 2012</span>
+            <span class="accent-card-label">Serving the Austin Community</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text-col fade-in-right">
+        <span class="section-eyebrow">Our Story</span>
+        <h2 class="section-title section-title--left">Rooted in Austin,<br /><em>Growing With You</em></h2>
+        <p class="about-p">
+          Pentas Landscapes was born from a simple belief: that beautiful outdoor spaces strengthen communities. Named after the cheerful, resilient pentas flower — a Texas garden favorite — we bring that same energy to every lawn, garden, and neighborhood we serve.
+        </p>
+        <p class="about-p">
+          Based in the greater Austin area, we understand Central Texas like no one else. We know the soil, the heat, the Hill Country winds, and the native plants that make this region uniquely beautiful. Our team combines horticultural expertise with genuine care for every client.
+        </p>
+        <div class="about-values">
+          <div class="value-item">
+            <div class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M12 22C12 22 3 16 3 9C3 5.69 7.13 3 12 3C16.87 3 21 5.69 21 9C21 16 12 22 12 22Z"/>
+                <circle cx="12" cy="9" r="2"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Local Expertise</strong>
+              <p>Deep knowledge of Austin's climate, soils, and native plants.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M17 21V19C17 17.9 16.5 16.9 15.8 16.2L11 13L6.2 16.2C5.5 16.9 5 17.9 5 19V21"/>
+                <circle cx="12" cy="8" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Community-Focused</strong>
+              <p>We're neighbors first — invested in Austin's growth and beauty.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <path d="M12 2L14.09 8.26L20.71 8.27L15.47 12.14L17.56 18.4L12 14.53L6.44 18.4L8.53 12.14L3.29 8.27L9.91 8.26L12 2Z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Exceptional Quality</strong>
+              <p>Every detail matters — from the first blade of grass to the final bloom.</p>
+            </div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Meet the Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLASSES ========== -->
+  <section class="section classes-section" id="classes" aria-label="Classes and workshops">
+    <div class="classes-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Education &amp; Community</span>
+        <h2 class="section-title">HOA Classes &amp; Workshops</h2>
+        <p class="section-desc">
+          Bring your community together with hands-on workshops that spark joy, creativity, and a deeper<br class="br-desktop" />
+          love of plants. Perfect for HOA events, neighborhood gatherings, and private groups.
+        </p>
+      </div>
+
+      <div class="classes-tabs" role="tablist" aria-label="Class categories">
+        <button class="tab-btn tab-btn--active" role="tab" aria-selected="true" aria-controls="tab-plants" id="btn-plants">🌿 Plant Classes</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-floral" id="btn-floral">🌸 Floral Arrangements</button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-crafts" id="btn-crafts">🎨 Plant Crafts</button>
+      </div>
+
+      <div class="classes-panel classes-panel--active" id="tab-plants" role="tabpanel" aria-labelledby="btn-plants">
+        <div class="classes-panel-grid">
+          <div class="class-card fade-in">
+            <div class="class-card-img class-card-img--natives" aria-label="Native plants class image placeholder"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Beginner Friendly</span>
+              <h3>Texas Natives 101</h3>
+              <p>Discover the stunning native plants that thrive in Austin's climate — from bluebonnets to Texas sage and beyond.</p>
+              <div class="class-meta">
+                <span>⏱ 2 hours</span>
+                <span>👥 Up to 30 guests</span>
+              </div>
+            </div>
+          </div>
+          <div class="class-card fade-in" style="--delay:0.1s">
+            <div class="class-card-img class-card-img--drought" aria-label="Drought-tolerant gardening class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">HOA Favorite</span>
+              <h3>Drought-Tolerant Landscaping</h3>
+              <p>Learn which plants require minimal water while delivering maximum curb appeal throughout Central Texas summers.</p>
+              <div class="class-meta">
+                <span>⏱ 2.5 hours</span>
+                <span>👥 Up to 25 guests</span>
+              </div>
+            </div>
+          </div>
+          <div class="class-card fade-in" style="--delay:0.2s">
+            <div class="class-card-img class-card-img--container" aria-label="Container gardening class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Take-Home Project</span>
+              <h3>Container Garden Design</h3>
+              <p>Participants create their own potted garden arrangement to take home — a perfect neighborhood event activity.</p>
+              <div class="class-meta">
+                <span>⏱ 3 hours</span>
+                <span>👥 Up to 20 guests</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="classes-panel" id="tab-floral" role="tabpanel" aria-labelledby="btn-floral" hidden>
+        <div class="classes-panel-grid">
+          <div class="class-card fade-in">
+            <div class="class-card-img class-card-img--seasonal" aria-label="Seasonal floral arrangement class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Most Popular</span>
+              <h3>Seasonal Floral Arrangements</h3>
+              <p>Create stunning seasonal centerpieces using fresh and locally-sourced blooms. Each guest leaves with their own arrangement.</p>
+              <div class="class-meta">
+                <span>⏱ 2 hours</span>
+                <span>👥 Up to 20 guests</span>
+              </div>
+            </div>
+          </div>
+          <div class="class-card fade-in" style="--delay:0.1s">
+            <div class="class-card-img class-card-img--wreath" aria-label="Wreath making class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Seasonal Event</span>
+              <h3>Wreath &amp; Garland Making</h3>
+              <p>From holiday wreaths to everyday greenery, this hands-on class teaches the art of botanical wreath design.</p>
+              <div class="class-meta">
+                <span>⏱ 2.5 hours</span>
+                <span>👥 Up to 25 guests</span>
+              </div>
+            </div>
+          </div>
+          <div class="class-card fade-in" style="--delay:0.2s">
+            <div class="class-card-img class-card-img--pressed" aria-label="Pressed flowers class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Creative</span>
+              <h3>Pressed Flower Art</h3>
+              <p>Preserve the beauty of blooms through the timeless art of pressed flower arrangements — frameable keepsakes to take home.</p>
+              <div class="class-meta">
+                <span>⏱ 2 hours</span>
+                <span>👥 Up to 30 guests</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="classes-panel" id="tab-crafts" role="tabpanel" aria-labelledby="btn-crafts" hidden>
+        <div class="classes-panel-grid">
+          <div class="class-card fade-in">
+            <div class="class-card-img class-card-img--terracotta" aria-label="Painted terracotta class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">All Ages</span>
+              <h3>Painted Terracotta Pots</h3>
+              <p>Design and paint your own terracotta pot, then plant it with a starter plant — a creative activity for all ages and skill levels.</p>
+              <div class="class-meta">
+                <span>⏱ 2 hours</span>
+                <span>👥 Up to 30 guests</span>
+              </div>
+            </div>
+          </div>
+          <div class="class-card fade-in" style="--delay:0.1s">
+            <div class="class-card-img class-card-img--kokedama" aria-label="Kokedama moss ball class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Unique Experience</span>
+              <h3>Kokedama (Moss Balls)</h3>
+              <p>Wrap a plant in a ball of soil and moss — the Japanese art of kokedama is beautiful, sustainable, and surprisingly simple.</p>
+              <div class="class-meta">
+                <span>⏱ 2.5 hours</span>
+                <span>👥 Up to 20 guests</span>
+              </div>
+            </div>
+          </div>
+          <div class="class-card fade-in" style="--delay:0.2s">
+            <div class="class-card-img class-card-img--herb" aria-label="Herb garden class"></div>
+            <div class="class-card-body">
+              <span class="class-tag">Practical &amp; Fun</span>
+              <h3>Herb Garden Workshop</h3>
+              <p>Learn to grow and use culinary and medicinal herbs suited to the Central Texas climate. Guests leave with a starter herb pot.</p>
+              <div class="class-meta">
+                <span>⏱ 2 hours</span>
+                <span>👥 Up to 25 guests</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="classes-cta fade-in">
+        <p>Ready to book a workshop for your HOA or community group?</p>
+        <a href="#contact" class="btn btn-primary">Inquire About Classes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section class="section gallery-section" id="gallery" aria-label="Photo gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">Our Work</span>
+        <h2 class="section-title">Austin Landscapes, Transformed</h2>
+        <p class="section-desc">
+          A glimpse of the spaces we've shaped across the greater Austin area.<br class="br-desktop" />
+          Photos coming soon — check back to see our latest projects.
+        </p>
+      </div>
+
+      <div class="gallery-grid fade-in">
+        <div class="gallery-item gallery-item--tall" aria-label="Gallery photo placeholder 1">
+          <div class="gallery-placeholder">
+            <div class="gallery-placeholder-inner">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="48" height="48">
+                <path d="M10 60L28 36L40 48L56 28L70 60H10Z" fill="currentColor" opacity="0.3"/>
+                <circle cx="58" cy="22" r="8" fill="currentColor" opacity="0.3"/>
+              </svg>
+              <span>Landscape Design</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item" aria-label="Gallery photo placeholder 2">
+          <div class="gallery-placeholder">
+            <div class="gallery-placeholder-inner">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="48" height="48">
+                <circle cx="40" cy="32" r="10" fill="currentColor" opacity="0.3"/>
+                <ellipse cx="40" cy="18" rx="7" ry="12" fill="currentColor" opacity="0.25"/>
+                <line x1="40" y1="42" x2="40" y2="68" stroke="currentColor" stroke-width="3" opacity="0.3" stroke-linecap="round"/>
+              </svg>
+              <span>Native Garden</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item" aria-label="Gallery photo placeholder 3">
+          <div class="gallery-placeholder">
+            <div class="gallery-placeholder-inner">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="48" height="48">
+                <rect x="15" y="30" width="50" height="30" rx="4" fill="currentColor" opacity="0.25"/>
+                <path d="M20 30C20 20 30 12 40 12C50 12 60 20 60 30" fill="currentColor" opacity="0.2"/>
+                <line x1="40" y1="12" x2="40" y2="30" stroke="currentColor" stroke-width="2.5" opacity="0.3" stroke-linecap="round"/>
+              </svg>
+              <span>HOA Community</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item--wide" aria-label="Gallery photo placeholder 4">
+          <div class="gallery-placeholder">
+            <div class="gallery-placeholder-inner">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="48" height="48">
+                <path d="M8 55L20 35L30 45L45 25L60 40L72 28L72 68L8 68Z" fill="currentColor" opacity="0.25"/>
+                <circle cx="20" cy="22" r="6" fill="currentColor" opacity="0.3"/>
+              </svg>
+              <span>Maintenance &amp; Upkeep</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item" aria-label="Gallery photo placeholder 5">
+          <div class="gallery-placeholder">
+            <div class="gallery-placeholder-inner">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="48" height="48">
+                <circle cx="40" cy="38" r="14" fill="currentColor" opacity="0.2"/>
+                <path d="M26 38C26 38 18 28 18 20C18 14 22 10 28 10C32 10 35 12 38 16C41 12 44 10 48 10C54 10 58 14 58 20C58 28 50 38 40 48C30 38 26 38 26 38Z" fill="currentColor" opacity="0.25"/>
+              </svg>
+              <span>Seasonal Blooms</span>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item--tall" aria-label="Gallery photo placeholder 6">
+          <div class="gallery-placeholder">
+            <div class="gallery-placeholder-inner">
+              <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="48" height="48">
+                <rect x="20" y="45" width="40" height="20" rx="3" fill="currentColor" opacity="0.25"/>
+                <path d="M25 45V30C25 22 30 16 40 16C50 16 55 22 55 30V45" fill="currentColor" opacity="0.2"/>
+                <circle cx="33" cy="32" r="4" fill="currentColor" opacity="0.3"/>
+                <circle cx="47" cy="32" r="4" fill="currentColor" opacity="0.3"/>
+              </svg>
+              <span>Floral Workshop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-note fade-in">
+        <span>📸 Photos upload in progress — follow us on Instagram <a href="#contact" class="gallery-ig-link">@pentaslandscapes</a> for the latest</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section class="section testimonials-section" id="testimonials" aria-label="Client testimonials">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-eyebrow">What Clients Say</span>
+        <h2 class="section-title">Austin Homeowners Love Us</h2>
+      </div>
+
+      <div class="testimonials-slider" id="testimonialsSlider" aria-live="polite">
+        <div class="testimonials-track" id="testimonialsTrack">
+
+          <article class="testimonial-card" aria-label="Testimonial from Sarah M.">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>
+              "Pentas Landscapes transformed our HOA common areas beyond what we imagined. The team is incredibly knowledgeable about Texas natives and our residents couldn't be happier. The plant workshop they hosted was a hit with everyone!"
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">S</div>
+              <div>
+                <strong>Sarah M.</strong>
+                <span>HOA Board President, Cedar Park</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card" aria-label="Testimonial from James &amp; Linda T.">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>
+              "We hired Pentas for a full backyard redesign and the result is absolutely stunning. They understood our vision perfectly and the native plant selections they chose look gorgeous year-round. Worth every penny."
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">J</div>
+              <div>
+                <strong>James &amp; Linda T.</strong>
+                <span>Homeowners, Round Rock</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card" aria-label="Testimonial from Maria C.">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>
+              "The floral arrangement class Pentas hosted for our HOA was absolutely wonderful. Our neighbors still talk about it! They made it so easy and fun, and everyone left with a beautiful arrangement. Already booked the next one."
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">M</div>
+              <div>
+                <strong>Maria C.</strong>
+                <span>HOA Event Coordinator, Bee Cave</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card" aria-label="Testimonial from Robert K.">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>
+              "Consistent, reliable, and they genuinely care about the health of your plants. Our yard has never looked better. The seasonal color installs they do for us get compliments from the whole street every time."
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">R</div>
+              <div>
+                <strong>Robert K.</strong>
+                <span>Homeowner, South Austin</span>
+              </div>
+            </footer>
+          </article>
+
+          <article class="testimonial-card" aria-label="Testimonial from Amanda L.">
+            <div class="testimonial-stars" aria-label="5 stars">★★★★★</div>
+            <blockquote>
+              "I was skeptical about spending on landscape design, but Pentas showed me exactly what was possible with my space. The return on investment — in curb appeal and personal enjoyment — has been phenomenal. Truly talented team."
+            </blockquote>
+            <footer class="testimonial-author">
+              <div class="testimonial-avatar" aria-hidden="true">A</div>
+              <div>
+                <strong>Amanda L.</strong>
+                <span>Homeowner, Georgetown</span>
+              </div>
+            </footer>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="testimonials-controls" aria-label="Testimonial navigation">
+        <button class="testimonial-btn" id="prevBtn" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M15 18L9 12L15 6"/></svg>
+        </button>
+        <div class="testimonial-dots" id="testimonialDots" role="group" aria-label="Testimonial indicators"></div>
+        <button class="testimonial-btn" id="nextBtn" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><path d="M9 18L15 12L9 6"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact-section" id="contact" aria-label="Contact us">
+    <div class="container contact-container">
+
+      <div class="contact-info fade-in-left">
+        <span class="section-eyebrow">Let's Connect</span>
+        <h2 class="section-title section-title--left">Ready to Transform<br /><em>Your Landscape?</em></h2>
+        <p class="contact-p">
+          Whether you need regular maintenance, a stunning redesign, or a memorable HOA workshop — we'd love to hear from you. Reach out for a free, no-obligation estimate.
+        </p>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20">
+                <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 5.86 7.03 3 12 3C16.97 3 21 5.86 21 10Z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Greater Austin, Texas</strong>
+              <span>Serving Austin, Round Rock, Cedar Park,<br />Bee Cave, Georgetown &amp; beyond</span>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20">
+                <path d="M22 16.92V19.92C22 20.48 21.76 21 21.36 21.38C20.96 21.76 20.42 21.97 19.86 21.95C16.74 21.6 13.74 20.53 11.12 18.77C8.68 17.17 6.62 15.11 5.02 12.67C3.26 10.04 2.19 7.04 1.84 3.92C1.82 3.36 2.03 2.82 2.41 2.42C2.79 2.02 3.31 1.79 3.86 1.79H6.86C7.83 1.79 8.67 2.47 8.86 3.42C9.02 4.24 9.27 5.04 9.6 5.81C9.84 6.39 9.7 7.06 9.24 7.48L7.98 8.74C9.46 11.3 11.64 13.48 14.2 14.96L15.46 13.7C15.88 13.24 16.55 13.1 17.13 13.34C17.9 13.67 18.7 13.92 19.52 14.08C20.48 14.27 21.17 15.12 21.17 16.1L22 16.92Z"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Call or Text</strong>
+              <span>(512) 555-0192</span>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20">
+                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Email Us</strong>
+              <span>hello@pentaslandscapes.com</span>
+            </div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
+            <div>
+              <strong>Business Hours</strong>
+              <span>Mon–Sat: 7am – 6pm<br />Sunday: By Appointment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap fade-in-right">
+        <form class="contact-form" id="contactForm" novalidate aria-label="Contact form">
+          <h3 class="form-title">Get a Free Estimate</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">First Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="firstName" name="firstName" placeholder="Jane" required autocomplete="given-name" />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+              <span class="form-error" aria-live="polite"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address <span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(512) 000-0000" autocomplete="tel" />
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service Interested In <span aria-hidden="true">*</span></label>
+            <div class="select-wrap">
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service…</option>
+                <option value="maintenance">Landscape Maintenance</option>
+                <option value="classes">HOA Classes &amp; Workshops</option>
+                <option value="design">Landscape Design &amp; Enhancements</option>
+                <option value="multiple">Multiple Services</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+              <svg class="select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" width="16" height="16"><path d="M6 9L12 15L18 9"/></svg>
+            </div>
+            <span class="form-error" aria-live="polite"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project</label>
+            <textarea id="message" name="message" rows="4" placeholder="Describe your outdoor space, what you're hoping to achieve, your neighborhood or HOA…"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span class="btn-text">Send My Request</span>
+            <span class="btn-loading" aria-hidden="true" hidden>Sending…</span>
+          </button>
+
+          <p class="form-disclaimer">We'll get back to you within one business day. No spam, ever.</p>
+
+          <div class="form-success" id="formSuccess" hidden role="alert">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" width="32" height="32"><path d="M22 11.08V12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2C13.93 2 15.74 2.62 17.22 3.68"/><path d="M22 4L12 14.01L9 11.01"/></svg>
+            <strong>Message Received!</strong>
+            <p>Thank you — we'll be in touch within one business day to schedule your free estimate.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-logo footer-logo" aria-label="Pentas Landscapes home">
+          <span class="logo-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
+              <circle cx="24" cy="20" r="5" fill="currentColor" opacity="0.9"/>
+              <ellipse cx="24" cy="10" rx="3.5" ry="6" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="31.5" cy="13.5" rx="3.5" ry="6" transform="rotate(60 31.5 13.5)" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="31.5" cy="26.5" rx="3.5" ry="6" transform="rotate(120 31.5 26.5)" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="24" cy="30" rx="3.5" ry="6" transform="rotate(180 24 30)" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="16.5" cy="26.5" rx="3.5" ry="6" transform="rotate(240 16.5 26.5)" fill="currentColor" opacity="0.7"/>
+              <ellipse cx="16.5" cy="13.5" rx="3.5" ry="6" transform="rotate(300 16.5 13.5)" fill="currentColor" opacity="0.7"/>
+              <line x1="24" y1="25" x2="24" y2="46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="logo-text">
+            <span class="logo-name">Pentas</span>
+            <span class="logo-sub">Landscapes</span>
+          </span>
+        </a>
+        <p class="footer-tagline">Rooted in Austin. Growing with you.</p>
+        <div class="footer-socials">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M18 2H15C13.67 2 12.4 2.53 11.46 3.46C10.53 4.4 10 5.67 10 7V10H7V14H10V22H14V14H17L18 10H14V7C14 6.73 14.11 6.48 14.29 6.29C14.48 6.11 14.73 6 15 6H18V2Z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Pinterest">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="18" height="18"><path d="M12 2C6.48 2 2 6.48 2 12C2 16.24 4.56 19.87 8.22 21.37C8.16 20.84 8.11 20.03 8.24 19.44C8.36 18.91 9.04 16.05 9.04 16.05C9.04 16.05 8.84 15.65 8.84 15.03C8.84 14.03 9.42 13.28 10.14 13.28C10.75 13.28 11.05 13.74 11.05 14.28C11.05 14.88 10.67 15.78 10.47 16.62C10.31 17.32 10.83 17.9 11.52 17.9C12.78 17.9 13.75 16.57 13.75 14.64C13.75 12.93 12.52 11.75 10.78 11.75C8.77 11.75 7.59 13.23 7.59 14.77C7.59 15.38 7.82 16.02 8.12 16.37C8.18 16.44 8.19 16.5 8.17 16.58L7.88 17.73C7.83 17.94 7.71 17.99 7.52 17.9C6.59 17.47 6 16.38 6 14.77C6 12.37 7.83 10.18 11.04 10.18C13.61 10.18 15.59 11.99 15.59 14.6C15.59 17.32 13.92 19.5 11.55 19.5C10.84 19.5 10.18 19.13 9.96 18.7L9.38 20.93C9.17 21.71 8.63 22.69 8.26 23.27C9.12 23.52 10.04 23.64 11 23.64C16.52 23.64 21 19.16 21 13.64C21 8.12 16.52 2 11 2L12 2Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-links-title">Services</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="#services">Landscape Maintenance</a></li>
+          <li><a href="#classes">HOA Classes &amp; Workshops</a></li>
+          <li><a href="#services">Landscape Design</a></li>
+          <li><a href="#services">Seasonal Enhancements</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-links-title">Company</h4>
+        <ul class="footer-links" role="list">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#gallery">Our Work</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-links-title">Service Areas</h4>
+        <ul class="footer-links" role="list">
+          <li>Austin</li>
+          <li>Round Rock</li>
+          <li>Cedar Park</li>
+          <li>Bee Cave</li>
+          <li>Georgetown</li>
+          <li>Pflugerville</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; <span id="footerYear">2024</span> Pentas Landscapes LLC. All rights reserved. | Greater Austin, TX</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" width="20" height="20"><path d="M18 15L12 9L6 15"/></svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
