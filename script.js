@@ -33,6 +33,7 @@ function debounce(fn, delay) {
 document.addEventListener('DOMContentLoaded', () => {
   initHeader();
   initHamburger();
+  initScrollSpy();
   initScrollAnimations();
   initHeroParallax();
   initCounters();
@@ -52,8 +53,6 @@ function initHeader() {
   const header = document.getElementById('siteHeader');
   if (!header) return;
 
-  let lastScroll = 0;
-
   function onScroll() {
     const scrollY = window.scrollY;
 
@@ -63,8 +62,6 @@ function initHeader() {
     } else {
       header.classList.remove('scrolled');
     }
-
-    lastScroll = scrollY;
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -78,15 +75,19 @@ function initHamburger() {
   const hamburger = document.getElementById('hamburger');
   const navLinks  = document.getElementById('navLinks');
   const overlay   = document.getElementById('navOverlay');
+  let lockedScrollY = 0;
 
   if (!hamburger || !navLinks || !overlay) return;
 
   function openMenu() {
+    lockedScrollY = window.scrollY;
     hamburger.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
     navLinks.classList.add('open');
     overlay.classList.add('visible');
-    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${lockedScrollY}px`;
+    document.body.style.width = '100%';
   }
 
   function closeMenu() {
@@ -94,7 +95,10 @@ function initHamburger() {
     hamburger.setAttribute('aria-expanded', 'false');
     navLinks.classList.remove('open');
     overlay.classList.remove('visible');
-    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, lockedScrollY);
   }
 
   hamburger.addEventListener('click', () => {
@@ -117,10 +121,82 @@ function initHamburger() {
       hamburger.focus();
     }
   });
+
+  // Ensure mobile drawer is closed when switching back to desktop width.
+  window.addEventListener('resize', debounce(() => {
+    if (window.innerWidth > 768 && navLinks.classList.contains('open')) {
+      closeMenu();
+    }
+  }, 120));
 }
 
 /* ============================================================
-   3. SCROLL ANIMATIONS (Intersection Observer)
+   3. ACTIVE SECTION LINK (ScrollSpy)
+   ============================================================ */
+function initScrollSpy() {
+  const links = [...document.querySelectorAll('.nav-link[href^="#"]')];
+  const sections = links
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+
+  if (!links.length || !sections.length) return;
+
+  const linkById = new Map(
+    links
+      .map(link => [link.getAttribute('href').slice(1), link])
+  );
+
+  const visibility = new Map(sections.map(section => [section.id, 0]));
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        visibility.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
+      });
+
+      let activeId = null;
+      let maxRatio = 0;
+      visibility.forEach((ratio, id) => {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          activeId = id;
+        }
+      });
+
+      if (activeId) {
+        setActive(activeId);
+      }
+    },
+    {
+      threshold: 0.45,
+      rootMargin: '-20% 0px -35% 0px'
+    }
+  );
+
+  sections.forEach(section => observer.observe(section));
+
+  // Establish an initial active link before observer callbacks fire.
+  const initial = sections.find(section => section.getBoundingClientRect().top >= 0) || sections[0];
+  if (initial) {
+    setActive(initial.id);
+  }
+
+  function setActive(id) {
+    links.forEach(link => {
+      link.classList.remove('active');
+      link.removeAttribute('aria-current');
+    });
+
+    const active = linkById.get(id);
+    if (active) {
+      active.classList.add('active');
+      active.setAttribute('aria-current', 'page');
+    }
+  }
+}
+
+/* ============================================================
+   4. SCROLL ANIMATIONS (Intersection Observer)
    ============================================================ */
 function initScrollAnimations() {
   const elements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right');
@@ -145,11 +221,12 @@ function initScrollAnimations() {
 }
 
 /* ============================================================
-   4. HERO PARALLAX
+  5. HERO PARALLAX
    ============================================================ */
 function initHeroParallax() {
   const heroBg = document.getElementById('heroBg');
   const heroContent = document.querySelector('.reveal-hero');
+  const hero = document.querySelector('.hero');
 
   // Reveal hero content on load
   if (heroContent) {
@@ -163,20 +240,43 @@ function initHeroParallax() {
   // Skip parallax on reduced-motion preference
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
+  // Skip heavy parallax transforms on narrow screens.
+  if (window.matchMedia('(max-width: 900px)').matches) return;
+
+  let ticking = false;
+  let heroMax = hero?.offsetHeight || 600;
+
   function updateParallax() {
     const scrollY = window.scrollY;
-    const max = document.querySelector('.hero')?.offsetHeight || 600;
-    if (scrollY > max) return;
+    if (scrollY > heroMax) {
+      heroBg.style.transform = '';
+      return;
+    }
 
     const yMove = scrollY * 0.35;
     heroBg.style.transform = `translateY(${yMove}px)`;
   }
 
-  window.addEventListener('scroll', updateParallax, { passive: true });
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+
+    requestAnimationFrame(() => {
+      updateParallax();
+      ticking = false;
+    });
+  }
+
+  window.addEventListener('resize', debounce(() => {
+    heroMax = hero?.offsetHeight || 600;
+  }, 150));
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateParallax();
 }
 
 /* ============================================================
-   5. ANIMATED COUNTERS (Hero Badges)
+  6. ANIMATED COUNTERS (Hero Badges)
    ============================================================ */
 function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
@@ -217,7 +317,7 @@ function animateCount(el, from, to, duration) {
 }
 
 /* ============================================================
-   6. SERVICE CARDS — Touch Support for Flip
+  7. SERVICE CARDS — Touch Support for Flip
    ============================================================ */
 function initServiceCards() {
   // On touch devices, toggle flip on tap instead of hover
@@ -226,13 +326,19 @@ function initServiceCards() {
   const cards = document.querySelectorAll('.service-card');
   cards.forEach(card => {
     card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
+      const shouldFlip = !card.classList.contains('flipped');
+
+      // Keep one card open at a time on touch screens.
+      cards.forEach(other => other.classList.remove('flipped'));
+      if (shouldFlip) {
+        card.classList.add('flipped');
+      }
     });
   });
 }
 
 /* ============================================================
-   7. CLASS TABS
+  8. CLASS TABS
    ============================================================ */
 function initClassTabs() {
   const tabs = document.querySelectorAll('.tab-btn');
@@ -241,11 +347,16 @@ function initClassTabs() {
   if (!tabs.length) return;
 
   tabs.forEach(tab => {
+    tab.tabIndex = tab.classList.contains('tab-btn--active') ? 0 : -1;
+  });
+
+  tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       // Deactivate all
       tabs.forEach(t => {
         t.classList.remove('tab-btn--active');
         t.setAttribute('aria-selected', 'false');
+        t.tabIndex = -1;
       });
 
       panels.forEach(p => {
@@ -256,6 +367,7 @@ function initClassTabs() {
       // Activate clicked
       tab.classList.add('tab-btn--active');
       tab.setAttribute('aria-selected', 'true');
+      tab.tabIndex = 0;
 
       const panelId = tab.getAttribute('aria-controls');
       const panel = document.getElementById(panelId);
@@ -278,12 +390,22 @@ function initClassTabs() {
 
     // Keyboard navigation for tabs
     tab.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || e.key === 'Home' || e.key === 'End') {
+        e.preventDefault();
         const allTabs = [...tabs];
         const idx = allTabs.indexOf(tab);
-        const next = e.key === 'ArrowRight'
-          ? (idx + 1) % allTabs.length
-          : (idx - 1 + allTabs.length) % allTabs.length;
+
+        let next = idx;
+        if (e.key === 'ArrowRight') {
+          next = (idx + 1) % allTabs.length;
+        } else if (e.key === 'ArrowLeft') {
+          next = (idx - 1 + allTabs.length) % allTabs.length;
+        } else if (e.key === 'Home') {
+          next = 0;
+        } else if (e.key === 'End') {
+          next = allTabs.length - 1;
+        }
+
         allTabs[next].focus();
         allTabs[next].click();
       }
@@ -292,7 +414,7 @@ function initClassTabs() {
 }
 
 /* ============================================================
-   8. TESTIMONIALS SLIDER
+  9. TESTIMONIALS SLIDER
    ============================================================ */
 function initTestimonialSlider() {
   const track  = document.getElementById('testimonialsTrack');
@@ -304,8 +426,19 @@ function initTestimonialSlider() {
 
   const cards = [...track.querySelectorAll('.testimonial-card')];
   const total = cards.length;
+  const controls = document.querySelector('.testimonials-controls');
+
+  if (!total) return;
+
+  if (total === 1) {
+    controls?.setAttribute('hidden', 'hidden');
+    return;
+  }
+
   let current = 0;
   let autoTimer = null;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let inView = true;
 
   // Build dots
   const dots = cards.map((_, i) => {
@@ -333,27 +466,68 @@ function initTestimonialSlider() {
   function next() { goTo(current + 1); }
   function prev() { goTo(current - 1); }
 
-  nextBtn?.addEventListener('click', () => { resetTimer(); next(); });
-  prevBtn?.addEventListener('click', () => { resetTimer(); prev(); });
+  nextBtn?.addEventListener('click', () => {
+    if (!reduceMotion) resetTimer();
+    next();
+  });
+  prevBtn?.addEventListener('click', () => {
+    if (!reduceMotion) resetTimer();
+    prev();
+  });
 
   // Auto-play
   function startTimer() {
+    if (!inView) return;
+    clearInterval(autoTimer);
     autoTimer = setInterval(next, 5500);
   }
 
-  function resetTimer() {
+  function pauseTimer() {
     clearInterval(autoTimer);
+    autoTimer = null;
+  }
+
+  function resetTimer() {
+    pauseTimer();
     startTimer();
   }
 
-  startTimer();
+  if (!reduceMotion) {
+    startTimer();
+  }
 
   // Pause on hover / focus
   const section = document.getElementById('testimonials');
-  section?.addEventListener('mouseenter', () => clearInterval(autoTimer));
-  section?.addEventListener('mouseleave', startTimer);
-  section?.addEventListener('focusin',    () => clearInterval(autoTimer));
-  section?.addEventListener('focusout',   startTimer);
+  section?.addEventListener('mouseenter', () => {
+    if (!reduceMotion) pauseTimer();
+  });
+  section?.addEventListener('mouseleave', () => {
+    if (!reduceMotion) startTimer();
+  });
+  section?.addEventListener('focusin', () => {
+    if (!reduceMotion) pauseTimer();
+  });
+  section?.addEventListener('focusout', () => {
+    if (!reduceMotion) startTimer();
+  });
+
+  if (section && !reduceMotion) {
+    const visibilityObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          inView = entry.isIntersecting;
+          if (inView) {
+            startTimer();
+          } else {
+            pauseTimer();
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    visibilityObserver.observe(section);
+  }
 
   // Swipe support
   let touchStartX = 0;
@@ -364,34 +538,46 @@ function initTestimonialSlider() {
   track.addEventListener('touchend', e => {
     const diff = touchStartX - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 40) {
-      resetTimer();
+      if (!reduceMotion) resetTimer();
       diff > 0 ? next() : prev();
     }
   }, { passive: true });
 
   // Keyboard left/right arrows when focused inside
   section?.addEventListener('keydown', e => {
-    if (e.key === 'ArrowRight') { resetTimer(); next(); }
-    if (e.key === 'ArrowLeft')  { resetTimer(); prev(); }
+    if (e.key === 'ArrowRight') {
+      if (!reduceMotion) resetTimer();
+      next();
+    }
+    if (e.key === 'ArrowLeft') {
+      if (!reduceMotion) resetTimer();
+      prev();
+    }
   });
 }
 
 /* ============================================================
-   9. CONTACT FORM
+   10. CONTACT FORM
    ============================================================ */
 function initContactForm() {
   const form      = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
   const success   = document.getElementById('formSuccess');
+  let successTimer = null;
 
   if (!form) return;
 
   // Real-time validation
-  const fields = form.querySelectorAll('input[required], select[required]');
+  const fields = form.querySelectorAll('input[required], select[required], input[type="tel"]');
   fields.forEach(field => {
     field.addEventListener('blur', () => validateField(field));
     field.addEventListener('input', () => {
       if (field.classList.contains('error')) validateField(field);
+
+      // Dismiss success state when user begins editing a new request.
+      if (success && !success.hidden) {
+        success.hidden = true;
+      }
     });
   });
 
@@ -411,8 +597,8 @@ function initContactForm() {
     const btnLoading = submitBtn.querySelector('.btn-loading');
 
     submitBtn.disabled = true;
-    btnText.hidden    = true;
-    btnLoading.hidden = false;
+    if (btnText) btnText.hidden = true;
+    if (btnLoading) btnLoading.hidden = false;
 
     await new Promise(resolve => setTimeout(resolve, 1200));
 
@@ -420,7 +606,18 @@ function initContactForm() {
     if (success) {
       success.hidden = false;
       success.removeAttribute('hidden');
+
+      clearTimeout(successTimer);
+      successTimer = setTimeout(() => {
+        success.hidden = true;
+      }, 6000);
     }
+
+    form.reset();
+
+    if (btnText) btnText.hidden = false;
+    if (btnLoading) btnLoading.hidden = true;
+    submitBtn.disabled = false;
   });
 }
 
@@ -429,18 +626,22 @@ function validateField(field) {
   const value   = field.value.trim();
   let message   = '';
 
-  if (!value) {
+  if (field.hasAttribute('required') && !value) {
     message = `${getFieldLabel(field)} is required.`;
   } else if (field.type === 'email' && !isValidEmail(value)) {
     message = 'Please enter a valid email address.';
+  } else if (field.type === 'tel' && value && !isValidPhone(value)) {
+    message = 'Please enter a valid phone number.';
   }
 
   if (message) {
     field.classList.add('error');
+    field.setAttribute('aria-invalid', 'true');
     if (errorEl) errorEl.textContent = message;
     return false;
   } else {
     field.classList.remove('error');
+    field.setAttribute('aria-invalid', 'false');
     if (errorEl) errorEl.textContent = '';
     return true;
   }
@@ -455,8 +656,13 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
+function isValidPhone(phone) {
+  const digits = phone.replace(/\D/g, '');
+  return digits.length >= 10;
+}
+
 /* ============================================================
-   10. BACK TO TOP
+  11. BACK TO TOP
    ============================================================ */
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
@@ -476,7 +682,7 @@ function initBackToTop() {
 }
 
 /* ============================================================
-   11. FOOTER YEAR
+  12. FOOTER YEAR
    ============================================================ */
 function initFooterYear() {
   const el = document.getElementById('footerYear');
@@ -484,9 +690,11 @@ function initFooterYear() {
 }
 
 /* ============================================================
-   12. SMOOTH SCROLL (fallback for older browsers)
+  13. SMOOTH SCROLL (fallback for older browsers)
    ============================================================ */
 function initSmoothScroll() {
+  const useSmooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', e => {
       const targetId = anchor.getAttribute('href');
@@ -496,7 +704,7 @@ function initSmoothScroll() {
       if (!target) return;
 
       e.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      target.scrollIntoView({ behavior: useSmooth ? 'smooth' : 'auto', block: 'start' });
     });
   });
 }

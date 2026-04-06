@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: pentas-landscapes-webpage
+    env: static
+    buildCommand: echo "No build step required"
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: true

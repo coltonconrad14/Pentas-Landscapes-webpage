@@ -4,33 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Pentas Landscapes – Premier landscape maintenance, design, and educational classes for HOAs in the greater Austin, Texas area." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#28443d" />
+  <meta property="og:title" content="Pentas Landscapes | Austin, TX" />
+  <meta property="og:description" content="Premier landscape maintenance, design, and HOA workshops in the greater Austin area." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/pentas-logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pentas Landscapes | Austin, TX" />
+  <meta name="twitter:description" content="Premier landscape maintenance, design, and HOA workshops in the greater Austin area." />
+  <meta name="twitter:image" content="assets/pentas-logo.png" />
   <title>Pentas Landscapes | Austin, TX</title>
+  <script>document.documentElement.classList.add('js');</script>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="assets/pentas-logo.png" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="assets/pentas-logo.png" />
 
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">Skip to main content</a>
 
   <!-- ========== NAVIGATION ========== -->
   <header class="site-header" id="siteHeader">
     <nav class="nav-container" role="navigation" aria-label="Main navigation">
       <a href="#hero" class="nav-logo" aria-label="Pentas Landscapes home">
-        <span class="logo-icon" aria-hidden="true">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="36" height="36">
-            <circle cx="24" cy="20" r="5" fill="currentColor" opacity="0.9"/>
-            <ellipse cx="24" cy="10" rx="3.5" ry="6" fill="currentColor" opacity="0.7"/>
-            <ellipse cx="31.5" cy="13.5" rx="3.5" ry="6" transform="rotate(60 31.5 13.5)" fill="currentColor" opacity="0.7"/>
-            <ellipse cx="31.5" cy="26.5" rx="3.5" ry="6" transform="rotate(120 31.5 26.5)" fill="currentColor" opacity="0.7"/>
-            <ellipse cx="24" cy="30" rx="3.5" ry="6" transform="rotate(180 24 30)" fill="currentColor" opacity="0.7"/>
-            <ellipse cx="16.5" cy="26.5" rx="3.5" ry="6" transform="rotate(240 16.5 26.5)" fill="currentColor" opacity="0.7"/>
-            <ellipse cx="16.5" cy="13.5" rx="3.5" ry="6" transform="rotate(300 16.5 13.5)" fill="currentColor" opacity="0.7"/>
-            <line x1="24" y1="25" x2="24" y2="46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-          </svg>
-        </span>
+        <img src="assets/pentas-logo.png" alt="" class="logo-icon logo-icon--image" aria-hidden="true" width="44" height="44" />
         <span class="logo-text">
           <span class="logo-name">Pentas</span>
           <span class="logo-sub">Landscapes</span>
@@ -56,11 +59,16 @@
 
   <div class="nav-overlay" id="navOverlay"></div>
 
+  <main id="mainContent">
+
   <!-- ========== HERO ========== -->
   <section class="hero" id="hero" aria-label="Hero">
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content reveal-hero">
+      <div class="hero-brand-mark" aria-hidden="true">
+        <img src="assets/pentas-logo.png" alt="" width="180" height="180" />
+      </div>
       <span class="hero-eyebrow">Greater Austin's Premier Landscape Experts</span>
       <h1 class="hero-headline">
         Where Austin&nbsp;Blooms<br />
@@ -300,10 +308,10 @@
         </p>
       </div>
 
-      <div class="classes-tabs" role="tablist" aria-label="Class categories">
-        <button class="tab-btn tab-btn--active" role="tab" aria-selected="true" aria-controls="tab-plants" id="btn-plants">🌿 Plant Classes</button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-floral" id="btn-floral">🌸 Floral Arrangements</button>
-        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-crafts" id="btn-crafts">🎨 Plant Crafts</button>
+      <div class="classes-tabs" role="tablist" aria-label="Class categories" aria-orientation="horizontal">
+        <button type="button" class="tab-btn tab-btn--active" role="tab" aria-selected="true" aria-controls="tab-plants" id="btn-plants">Plant Classes</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-floral" id="btn-floral">Floral Arrangements</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="tab-crafts" id="btn-crafts">Plant Crafts</button>
       </div>
 
       <div class="classes-panel classes-panel--active" id="tab-plants" role="tabpanel" aria-labelledby="btn-plants">
@@ -522,7 +530,7 @@
       </div>
 
       <div class="gallery-note fade-in">
-        <span>📸 Photos upload in progress — follow us on Instagram <a href="#contact" class="gallery-ig-link">@pentaslandscapes</a> for the latest</span>
+        <span>Portfolio uploads are in progress. Follow us on Instagram <a href="#contact" class="gallery-ig-link">@pentaslandscapes</a> for our newest projects.</span>
       </div>
     </div>
   </section>
@@ -691,25 +699,25 @@
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">First Name <span aria-hidden="true">*</span></label>
-              <input type="text" id="firstName" name="firstName" placeholder="Jane" required autocomplete="given-name" />
+              <input type="text" id="firstName" name="firstName" placeholder="Jane" required autocomplete="given-name" autocapitalize="words" />
               <span class="form-error" aria-live="polite"></span>
             </div>
             <div class="form-group">
               <label for="lastName">Last Name <span aria-hidden="true">*</span></label>
-              <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" />
+              <input type="text" id="lastName" name="lastName" placeholder="Smith" required autocomplete="family-name" autocapitalize="words" />
               <span class="form-error" aria-live="polite"></span>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">Email Address <span aria-hidden="true">*</span></label>
-            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+            <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" />
             <span class="form-error" aria-live="polite"></span>
           </div>
 
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="(512) 000-0000" autocomplete="tel" />
+            <input type="tel" id="phone" name="phone" placeholder="(512) 000-0000" autocomplete="tel" inputmode="tel" />
           </div>
 
           <div class="form-group">
@@ -730,7 +738,7 @@
 
           <div class="form-group">
             <label for="message">Tell Us About Your Project</label>
-            <textarea id="message" name="message" rows="4" placeholder="Describe your outdoor space, what you're hoping to achieve, your neighborhood or HOA…"></textarea>
+            <textarea id="message" name="message" rows="4" placeholder="Describe your outdoor space, what you're hoping to achieve, your neighborhood or HOA…" autocapitalize="sentences"></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
@@ -750,24 +758,14 @@
 
     </div>
   </section>
+  </main>
 
   <!-- ========== FOOTER ========== -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-container">
       <div class="footer-brand">
         <a href="#hero" class="nav-logo footer-logo" aria-label="Pentas Landscapes home">
-          <span class="logo-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-              <circle cx="24" cy="20" r="5" fill="currentColor" opacity="0.9"/>
-              <ellipse cx="24" cy="10" rx="3.5" ry="6" fill="currentColor" opacity="0.7"/>
-              <ellipse cx="31.5" cy="13.5" rx="3.5" ry="6" transform="rotate(60 31.5 13.5)" fill="currentColor" opacity="0.7"/>
-              <ellipse cx="31.5" cy="26.5" rx="3.5" ry="6" transform="rotate(120 31.5 26.5)" fill="currentColor" opacity="0.7"/>
-              <ellipse cx="24" cy="30" rx="3.5" ry="6" transform="rotate(180 24 30)" fill="currentColor" opacity="0.7"/>
-              <ellipse cx="16.5" cy="26.5" rx="3.5" ry="6" transform="rotate(240 16.5 26.5)" fill="currentColor" opacity="0.7"/>
-              <ellipse cx="16.5" cy="13.5" rx="3.5" ry="6" transform="rotate(300 16.5 13.5)" fill="currentColor" opacity="0.7"/>
-              <line x1="24" y1="25" x2="24" y2="46" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
-          </span>
+          <img src="assets/pentas-logo.png" alt="" class="logo-icon logo-icon--image" aria-hidden="true" width="40" height="40" />
           <span class="logo-text">
             <span class="logo-name">Pentas</span>
             <span class="logo-sub">Landscapes</span>
